@@ -20,6 +20,7 @@ public class Main {
         // TODO code application logic here
         System.out.println(Main.primeraQueRepite("MEMES"));
         System.out.println(Main.primeraQueRepite("ABCDA"));
+        Main.permutacionesParentesis(4);
 
     }
 
@@ -37,12 +38,31 @@ public class Main {
         return c;
     }
 
-    
-    public static void cantidadIslas(int[][] mapa){
-        
+    public static void cantidadIslas(int[][] mapa) {
+
+    }
+
+    public static void permutacionesParentesis(int numero) {
+        permutacion("", numero, numero);
+    }
+
+    public static void permutacion(String cadena, int izquierda, int derecha) {
+        if (izquierda > derecha) {
+            return;
+        }
+
+        if (izquierda == 0 && derecha == 0) {
+            System.out.println(cadena);
+            return;
+        }
+
+        if (izquierda > 0) {
+            permutacion(cadena + "(", izquierda - 1, derecha);
+        }
+
+        if (derecha > 0) {
+            permutacion(cadena + ")", izquierda, derecha - 1);
+        }
     }
     
-    public static void permutacionesParentesis(int numero){
-        
-    }
 }
